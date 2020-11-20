@@ -55,8 +55,6 @@ async function startWithABACModel() {
 
 async function startWithMongodbAdapter() {
   const adapter = await mongodbAdapter.create();
-  console.log('adapter');
-  console.log(adapter);
   adapter.isFiltered = () => (false);
   const enforcer = await newEnforcer('config/abac_rule_model.conf', adapter);
 
