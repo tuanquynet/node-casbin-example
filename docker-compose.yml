@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  mongodb:
+    build: ./mongodb
+    # restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD
+    networks:
+      - node_casbin_net
+    expose:
+      - "27017"
+    ports:
+      - "27017:27017"
+    volumes:
+      - "test-mongodb-data:/data/db"
+networks:
+  node_casbin_net:
+    driver: bridge
+volumes:
+  test-mongodb-data:
+    driver: local
