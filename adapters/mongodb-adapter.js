@@ -7,11 +7,13 @@ module.exports = {
       collectionName: 'casbin',
       databaseName: 'node-casbin-official',
       option: {
+        useNewUrlParser: true,
         authSource: 'admin',
         auth: {
           user: 'admin',
-          pass: 'xxxxx',
+          password: '123456',
         },
+        authMechanism: 'SCRAM-SHA-1',
       },
     });
   },

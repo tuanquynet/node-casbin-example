@@ -58,11 +58,10 @@ async function startWithMongodbAdapter() {
   console.log('adapter');
   console.log(adapter);
   adapter.isFiltered = () => (false);
-  // const enforcer = await newEnforcer('config/rbac_model.conf', adapter);
   const enforcer = await newEnforcer('config/abac_rule_model.conf', adapter);
 
   const sub = {
-    Age: 20,
+    age: 40,
   }; // the user that wants to access a resource.
   // const sub = 'alice';
   const obj = '/data1'; // the resource that is going to be accessed.
@@ -75,29 +74,16 @@ async function startWithMongodbAdapter() {
   console.log('add policy');
 
   await enforcer.addPolicy(
-    'r.sub.Age > 18', '/data1', 'read',
+    'r.sub.age > 18 && r.sub.age <= 50', '/data1', 'read',
   );
 
   await enforcer.savePolicy();
 
-  const res = await enforcer.enforce(sub, obj, act);
-
-  console.log('res');
-  console.log(res);
-  if (res) {
-    // permit alice to read data1
-    // console.log('permitted');
-
-    // return 'permitted';
-  } else {
-    // deny the request, show an error
-    // console.log('denied');
-
-    // return 'denied';
-  }
+  // const res = await enforcer.enforce(sub, obj, act);
 
   return Promise.all([
-    Promise.resolve(res),
+    enforcer.enforce(sub, obj, act),
+    enforcer.enforce({age: 60}, obj, act),
   ]);
 }
 
