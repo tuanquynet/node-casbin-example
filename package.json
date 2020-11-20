@@ -1,0 +1,36 @@
+{
+  "name": "casbin-example",
+  "version": "1.0.0",
+  "description": "example of node-casbin",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --require @babel/register index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "casbin",
+    "authorisation"
+  ],
+  "author": "quy.tran",
+  "license": "ISC",
+  "dependencies": {
+    "casbin": "^5.2.1",
+    "casbin-mongodb-adapter": "^1.1.11",
+    "mongodb": "^3.6.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/register": "^7.8.3",
+    "aws-sdk": "^2.556.0",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "mocha": "^6.2.2",
+    "webpack": "^4.41.6",
+    "webpack-node-externals": "^1.7.2"
+  }
+}

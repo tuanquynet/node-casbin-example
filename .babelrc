@@ -1,0 +1,22 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "12.14.1"
+        },
+        "debug": true,
+        "useBuiltIns": "entry",
+        "corejs": 3
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties"
+  ],
+  "ignore": [
+    "node_modules"
+  ],
+  "sourceMaps": "inline"
+}
